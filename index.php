@@ -1,5 +1,5 @@
 <?php
-for($i=1;$i<=100;++$i){
+for($i=1;$i<=1;++$i){
 
 $code ="780001".substr("000000".rand(), -5);
 $digit=0;
@@ -27,8 +27,8 @@ imagecopymerge($bgd, $bar, 0, 0, 0, 0, 300, 200, 100);
 imagecopymerge($bgd, $qr, 335, 10, 0, 0, 165, 165, 100);
 
 header('Content-Type: image/png');
-imagepng($bgd, 'codigos/'.$nombre.".png");
-//imagepng($bgd);
+//imagepng($bgd, 'codigos/'.$nombre.".png");
+imagepng($bgd);
 }
 imagedestroy($bgd);
 imagedestroy($bar);
