@@ -1,5 +1,5 @@
 <?php
-for($i=1;$i<=1 + 1;++$i){
+for($i=1;$i<=120;++$i){
 
 	//$short_code = rand();
 	$short_code = $i;
@@ -33,15 +33,18 @@ for($i=1;$i<=1 + 1;++$i){
 	$black = imagecolorallocate($bgd, 0, 0, 0);
 	$font_size = 40;
 	$bbox = imagettfbbox($font_size, 0, $font, $i);
+	imagealphablending($bgd, true);
 	imagettftext($bgd, $font_size, 0, 400 + $bbox[0] - $bbox[2], 50, $black, $font, $i);
+	imagettftext($bgd, 15, 90, 300, 150, $black, $font, '® KAF - 2016');
 	
 	header('Content-Type: image/png');
-	//imagepng($bgd, 'codigos/'.$nombre.".png");
-	imagepng($bgd);
+	imagepng($bgd, 'codigos/'.$nombre.".png");
+	//imagepng($bgd);
 }
 
 imagedestroy($bgd);
 imagedestroy($bar);
-imagedestroy($qr);
+imagedestroy($white);
+imagedestroy($black);
 
 ?>
