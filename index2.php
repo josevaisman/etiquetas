@@ -1,8 +1,8 @@
 <?php
 
-$n = 1;
-$a = 4;
-$b = 6;
+$n = 3;
+$a = 2;
+$b = 4;
 $dx = 420;
 $dy = 200;
 $dm = 20;
@@ -45,9 +45,9 @@ foreach ($files as $file){
 	}
 }
 header('Content-Type: image/png');
-//imagepng($bgd, 'imprimibles/'.$nombre.".png");
-imagepng($bgd);
-
+$imgfile = 'imprimibles/'.$nombre.'.png';
+imagepng($bgd, $imgfile);
+//imagepng($bgd);
 
 imagedestroy($bgd);
 imagedestroy($magenta);
