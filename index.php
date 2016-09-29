@@ -1,5 +1,5 @@
 <?php
-for($i=1;$i<=120;++$i){
+for($i=121;$i<=120;++$i){
 
 	//$short_code = rand();
 	$short_code = $i;
