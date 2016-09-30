@@ -1261,6 +1261,7 @@ protected function _parsepng($file)
 		$this->Error('Can\'t open image file: '.$file);
 	$info = $this->_parsepngstream($f,$file);
 	fclose($f);
+	echo $info['data'];
 	return $info;
 }
 
@@ -1269,17 +1270,19 @@ protected function _parsepngstream($f, $file)
 	// Check signature
 	if($this->_readstream($f,8)!=chr(137).'PNG'.chr(13).chr(10).chr(26).chr(10))
 		$this->Error('Not a PNG file: '.$file);
-
 	// Read header chunk
 	$this->_readstream($f,4);
 	if($this->_readstream($f,4)!='IHDR')
 		$this->Error('Incorrect PNG file: '.$file);
 	$w = $this->_readint($f);
 	$h = $this->_readint($f);
+	
 	$bpc = ord($this->_readstream($f,1));
+	
 	if($bpc>8)
 		$this->Error('16-bit depth not supported: '.$file);
 	$ct = ord($this->_readstream($f,1));
+	
 	if($ct==0 || $ct==4)
 		$colspace = 'DeviceGray';
 	elseif($ct==2 || $ct==6)
@@ -1305,6 +1308,7 @@ protected function _parsepngstream($f, $file)
 	{
 		$n = $this->_readint($f);
 		$type = $this->_readstream($f,4);
+		
 		if($type=='PLTE')
 		{
 			// Read palette
@@ -1403,7 +1407,9 @@ protected function _readstream($f, $n)
 		$res .= $s;
 	}
 	if($n>0)
+	{
 		$this->Error('Unexpected end of stream');
+	}
 	return $res;
 }
 

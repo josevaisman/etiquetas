@@ -1,8 +1,8 @@
 <?php
 
-$n = 3;
-$a = 2;
-$b = 4;
+$n = 4;
+$a = 1;
+$b = 1;
 $dx = 420;
 $dy = 200;
 $dm = 20;
@@ -29,7 +29,7 @@ imagefill($bgd, 0, 0, $white2);
 imagealphablending($bgd, false);
 imagesavealpha($bgd, true);
 
-$nombre = "etiquetas_".$n;
+$nombre = "agregados/etiquetas_".$n;
 $files = glob('codigos/*.png', GLOB_BRACE);
 
 foreach ($files as $file){
@@ -44,10 +44,10 @@ foreach ($files as $file){
 		}
 	}
 }
-header('Content-Type: image/png');
-$imgfile = 'imprimibles/'.$nombre.'.png';
-imagepng($bgd, $imgfile);
-//imagepng($bgd);
+
+header('Content-Type: image/jpeg');
+$imgfile = $nombre.'.jpeg';
+imagejpeg($bgd, $imgfile);
 
 imagedestroy($bgd);
 imagedestroy($magenta);
