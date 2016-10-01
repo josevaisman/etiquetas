@@ -1,7 +1,7 @@
 <?php
 
 require('fpdf181/fpdf.php');
-$n = 4;
+$n = 3;
 
 $nombre = "agregados/etiquetas_".$n;
 $nombrePdf = "imprimibles/etiquetas_imprimible_".$n;
@@ -9,9 +9,8 @@ $nombrePdf = "imprimibles/etiquetas_imprimible_".$n;
 $imgfile = $nombre.'.jpeg';
 $pdffile = $nombrePdf.'.pdf';
 
-//$pdf = new FPDF('P', 'cm', array(71, 56));
-$pdf = new FPDF('L','mm',array(710, 560));
-//$pdf -> Image($imgfile);
+$pdf = new FPDF('P','mm',array(560, 710));
+$pdf -> Image($imgfile, null, null, 200, 710);
 $pdf -> Output('F', $pdffile);
 
 ?>

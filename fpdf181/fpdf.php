@@ -904,7 +904,6 @@ function Image($file, $x=null, $y=null, $w=0, $h=0, $type='', $link='')
 		$w = $h*$info['w']/$info['h'];
 	if($h==0)
 		$h = $w*$info['h']/$info['w'];
-
 	// Flowing mode
 	if($y===null)
 	{
@@ -921,6 +920,16 @@ function Image($file, $x=null, $y=null, $w=0, $h=0, $type='', $link='')
 
 	if($x===null)
 		$x = $this->x;
+	echo "<br>";
+	echo ($this->h-($y+$h))*$this->k;
+	echo "<br>";
+	echo $this->h;
+	echo "<br>";
+	echo $y+$h;
+	echo "<br>";
+	echo $this->k;
+	echo "<br>";
+	echo sprintf('q %.2F 0 0 %.2F %.2F %.2F cm /I%d Do Q',$w*$this->k,$h*$this->k,$x*$this->k,($this->h-($y+$h))*$this->k,$info['i']);
 	$this->_out(sprintf('q %.2F 0 0 %.2F %.2F %.2F cm /I%d Do Q',$w*$this->k,$h*$this->k,$x*$this->k,($this->h-($y+$h))*$this->k,$info['i']));
 	if($link)
 		$this->Link($x,$y,$w,$h,$link);
