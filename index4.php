@@ -19,6 +19,7 @@ $pdf->SetAutoPageBreak(TRUE, 0);
 $pdf->AddPage();
 $pdf->setJPEGQuality(100);
 $pdf->Image($imgfile, 0, 0, 560, '', 'JPEG', '', '', true, 150, '', false, false, 0, false, false, false);
+$pdf->ImageSVG($file='marco.svg', $x=15, $y=30, $w='', $h='', $link='', $align='', $palign='', $border=0, $fitonpage=false);
 //$pdf->Output($pdffile, 'F');
 $pdf->Output($pdffile, 'I');
 
