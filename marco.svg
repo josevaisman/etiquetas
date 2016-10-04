@@ -1,16 +1,11 @@
-<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+<svg width="460" height="240" xmlns="http://www.w3.org/2000/svg">
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
  <!--canvas: x=580, y=400-->
+ <!--canvas: x=420, y=200+2*20-->
  <!--rectangle: x=69, y=55, w=283, h=161, rot=0, Opacity=100, Blur = 0, roundness=20-->
- <g>
-  <title>background</title>
-  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
-  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
-   <rect fill="none" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
-  </g>
- </g>
+ 
  <g>
   <title>Layer 1</title>
-  <rect rx="20" id="svg_1" height="161" width="283" y="55" x="68.5" stroke-width="1" stroke="#f0f" fill="none"/>
+  <rect rx="20" id="svg_1" height="200" width="380" y="0" x="0" stroke-width="1" stroke="#f0f" fill="none"/>
  </g>
 </svg>
