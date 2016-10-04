@@ -1,19 +1,26 @@
 <?php
 
 require('TCPDF/tcpdf.php');
-$n = 2;
+$n = 3;
 
 $nombre = "agregados/etiquetas_".$n;
 $nombrePdf = "imprimibles/etiquetas_imprimible_".$n;
-$nombrePdf_d = "etiquetas_imprimible_".$n.'.pdf';
 
 $imgfile = $nombre.'.jpeg';
 $pdffile = $nombrePdf.'.pdf';
 
 $pdf = new TCPDF('P','mm',array(560, 710));
-$pdf -> setJPEGQuality(75);
-$pdf -> Image($imgfile, '', '', 40, 40, '', '', 'T', false, 300, '', false, false, 1, false, false, false);
-$pdf -> Output($nombrePdf_d, 'I');
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('José Vaisman');
+$pdf->SetTitle('Codigos de Inventario');
+$pdf->setPrintHeader(false);
+$pdf->SetMargins(0, 0, 0);
+$pdf->SetAutoPageBreak(TRUE, 0);
+$pdf->AddPage();
+$pdf->setJPEGQuality(100);
+$pdf->Image($imgfile, 0, 0, 560, '', 'JPEG', '', '', true, 150, '', false, false, 0, false, false, false);
+//$pdf->Output($pdffile, 'F');
+$pdf->Output($pdffile, 'I');
 
 ?>
 
