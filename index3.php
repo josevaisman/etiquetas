@@ -2,7 +2,7 @@
 
 require('TCPDF/tcpdf.php');
 
-$n = 1;
+$n = 2;
 $a = 4;
 $b = 9;
 $dx = 420;
@@ -21,11 +21,11 @@ $pdffile = $nombrePdf.'.pdf';
 
 $pdf = new TCPDF('P','mm',array(560, 710));
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('José Vaisman');
+$pdf->SetAuthor('Josï¿½ Vaisman');
 $pdf->SetTitle('Codigos de Inventario');
 $pdf->setPrintHeader(false);
 $pdf->SetMargins(0, 0, 0);
-$pdf->SetAutoPageBreak(TRUE, 0);
+$pdf->SetAutoPageBreak(TRUE, -10);
 $pdf->AddPage();
 $pdf->setJPEGQuality(100);
 $pdf->Image($imgfile, 0, 0, 560, '', 'JPEG', '', '', true, 150, '', false, false, 0, false, false, false);
